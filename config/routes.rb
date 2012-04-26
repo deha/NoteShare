@@ -1,4 +1,13 @@
 NoteShare::Application.routes.draw do
+  #resources :file_attachments
+  #resources :notes
+  resources :notes
+  resources :file_attachments
+  
+  #map.new_file_attachment '/file_attachment/new/:note_id', :controller => 'file_attachments', :action => :new
+  root :to => "notes#index"
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
