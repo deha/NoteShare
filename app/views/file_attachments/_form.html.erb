@@ -19,10 +19,10 @@
     <%= f.label :desc %><br />
     <%= f.text_area :desc %>
   </div>
-  <div class="field">
-    <%= f.label :note_id %><br />
-    <%= f.text_field :note_id, :value => params[:note_id]%>
-  </div>
+
+
+    <%= f.hidden_field :note_id, :value => params[:note_id]%>
+
   <div class="actions">
     <%= f.submit %>
   </div>

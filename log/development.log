@@ -1666,3 +1666,282 @@ Served asset /notes.css - 200 OK (0ms)
 
 Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:55:40 +0200
 Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-04-26 18:56:55 +0200
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (2.5ms)
+  Rendered notes/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:56:55 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:56:55 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started POST "/notes" for 127.0.0.1 at 2012-04-26 18:57:02 +0200
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C8oAudFNOZBVGgsW8twy2RqRKR0L9v5a2vXZ3H8XuL4=", "note"=>{"title"=>"marek", "desc"=>"kocha patryka"}, "commit"=>"Create Note"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "notes" ("created_at", "desc", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 26 Apr 2012 16:57:02 UTC +00:00], ["desc", "kocha patryka"], ["title", "marek"], ["updated_at", Thu, 26 Apr 2012 16:57:02 UTC +00:00]]
+  [1m[35m (17.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/notes/4
+Completed 302 Found in 25ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/notes/4" for 127.0.0.1 at 2012-04-26 18:57:02 +0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 65ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:02 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:02 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-04-26 18:57:04 +0200
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.0ms)[0m  SELECT "notes".* FROM "notes" 
+  Rendered notes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:04 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:04 +0200
+Served asset /notes.css - 200 OK (2ms)
+
+
+Started GET "/file_attachments/new?note_id=4" for 127.0.0.1 at 2012-04-26 18:57:05 +0200
+Processing by FileAttachmentsController#new as HTML
+  Parameters: {"note_id"=>"4"}
+  Rendered file_attachments/_form.html.erb (2.5ms)
+  Rendered file_attachments/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:05 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:05 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started POST "/file_attachments" for 127.0.0.1 at 2012-04-26 18:57:14 +0200
+Processing by FileAttachmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C8oAudFNOZBVGgsW8twy2RqRKR0L9v5a2vXZ3H8XuL4=", "file_attachment"=>{"title"=>"mateusz", "desc"=>"sie dziwi", "note_id"=>"4"}, "commit"=>"Create File attachment"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "file_attachments" ("created_at", "desc", "note_id", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 26 Apr 2012 16:57:14 UTC +00:00], ["desc", "sie dziwi"], ["note_id", 4], ["title", "mateusz"], ["updated_at", Thu, 26 Apr 2012 16:57:14 UTC +00:00]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/file_attachments/11
+Completed 302 Found in 14ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/file_attachments/11" for 127.0.0.1 at 2012-04-26 18:57:14 +0200
+Processing by FileAttachmentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mFileAttachment Load (0.0ms)[0m  SELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1  [["id", "11"]]
+  Rendered file_attachments/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:14 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:57:14 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 12ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /file_attachments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /notes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /file_attachments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /notes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:13 +0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/file_attachments/new?note_id=4" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Processing by FileAttachmentsController#new as HTML
+  Parameters: {"note_id"=>"4"}
+  Rendered file_attachments/_form.html.erb (2.5ms)
+  Rendered file_attachments/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /file_attachments.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /notes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /file_attachments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /notes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:14 +0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/file_attachments" for 127.0.0.1 at 2012-04-26 18:58:18 +0200
+Processing by FileAttachmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C8oAudFNOZBVGgsW8twy2RqRKR0L9v5a2vXZ3H8XuL4=", "file_attachment"=>{"title"=>"dd", "desc"=>"dd", "note_id"=>"4"}, "commit"=>"Create File attachment"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "file_attachments" ("created_at", "desc", "note_id", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Thu, 26 Apr 2012 16:58:18 UTC +00:00], ["desc", "dd"], ["note_id", 4], ["title", "dd"], ["updated_at", Thu, 26 Apr 2012 16:58:18 UTC +00:00]]
+  [1m[35m (5.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/file_attachments/12
+Completed 302 Found in 8ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/file_attachments/12" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Processing by FileAttachmentsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mFileAttachment Load (2.5ms)[0m  [1mSELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1[0m  [["id", "12"]]
+  Rendered file_attachments/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /notes.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /file_attachments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /notes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
+Served asset /application.js - 304 Not Modified (2ms)
