@@ -9,6 +9,9 @@
   <b>Desc:</b>
   <%= @file_attachment.desc %>
 </p>
+<p>
+<a href="<%= @file_attachment.attach.url %> "><b> File attached </b></a>
+</p>
 
 
 <%= link_to 'Edit', edit_file_attachment_path(@file_attachment) %> |

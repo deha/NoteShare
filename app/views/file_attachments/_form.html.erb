@@ -1,4 +1,5 @@
-<%= form_for(@file_attachment) do |f| %>
+<%= form_for @file_attachment, :html => { :multipart => true } do |f| %>
+
   <% if @file_attachment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@file_attachment.errors.count, "error") %> prohibited this file_attachment from being saved:</h2>
@@ -18,6 +19,10 @@
   <div class="field">
     <%= f.label :desc %><br />
     <%= f.text_area :desc %>
+  </div>
+  <div class="field">
+ 	<b> attachment </b><br/>
+ 	<%= f.file_field :attach %>
   </div>
 
 

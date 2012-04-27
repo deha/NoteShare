@@ -1945,3 +1945,202 @@ Served asset /notes.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-26 18:58:19 +0200
 Served asset /application.js - 304 Not Modified (2ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateNotes (20120426154658)
+Migrating to CreateFileAttachments (20120426155052)
+Migrating to AddAttachFile (20120427092806)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "file_attachments" ADD "attach_file_name" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "file_attachments" ADD "attach_content_type" varchar(255)[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "file_attachments" ADD "attach_file_size" integer
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "file_attachments" ADD "attach_updated_at" datetime[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120427092806')
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("file_attachments")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("notes")[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-04-27 11:35:47 +0200
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 214ms (Views: 209.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /notes.css - 200 OK (5ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /file_attachments.css - 200 OK (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /jquery.js - 200 OK (6ms)
+
+
+Started GET "/assets/file_attachments.js?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /file_attachments.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /application.js - 200 OK (36ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-04-27 11:35:49 +0200
+Served asset /notes.js - 200 OK (3ms)
+
+
+Started GET "/file_attachments/new?note_id=4" for 127.0.0.1 at 2012-04-27 11:35:57 +0200
+Processing by FileAttachmentsController#new as HTML
+  Parameters: {"note_id"=>"4"}
+  Rendered file_attachments/_form.html.erb (85.0ms)
+  Rendered file_attachments/new.html.erb within layouts/application (108.0ms)
+Completed 200 OK in 125ms (Views: 118.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:57 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:35:57 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started POST "/file_attachments" for 127.0.0.1 at 2012-04-27 11:36:20 +0200
+Processing by FileAttachmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qn1DCphnuh4Ib0/kd8ENwiGw3aU0TxaKtg0lIrBWLI0=", "file_attachment"=>{"title"=>"soww4", "desc"=>"rozwiazanie", "attach"=>#<ActionDispatch::Http::UploadedFile:0x4ce9ae0 @original_filename="lab4.c", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file_attachment[attach]\"; filename=\"lab4.c\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<File:C:/Users/DeCe/AppData/Local/Temp/RackMultipart20120427-5016-1fnpo01>>, "note_id"=>"4"}, "commit"=>"Create File attachment"}
+  [1m[35m (0.0ms)[0m  begin transaction
+Binary data inserted for `string` type on column `attach_content_type`
+  [1m[36mSQL (76.0ms)[0m  [1mINSERT INTO "file_attachments" ("attach_content_type", "attach_file_name", "attach_file_size", "attach_updated_at", "created_at", "desc", "note_id", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attach_content_type", "application/octet-stream"], ["attach_file_name", "lab4.c"], ["attach_file_size", 10770], ["attach_updated_at", Fri, 27 Apr 2012 09:36:20 UTC +00:00], ["created_at", Fri, 27 Apr 2012 09:36:20 UTC +00:00], ["desc", "rozwiazanie"], ["note_id", 4], ["title", "soww4"], ["updated_at", Fri, 27 Apr 2012 09:36:20 UTC +00:00]]
+[paperclip] Saving attachments.
+  [1m[35m (6.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/file_attachments/13
+Completed 302 Found in 104ms (ActiveRecord: 82.0ms)
+
+
+Started GET "/file_attachments/13" for 127.0.0.1 at 2012-04-27 11:36:20 +0200
+Processing by FileAttachmentsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mFileAttachment Load (0.0ms)[0m  [1mSELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  Rendered file_attachments/show.html.erb within layouts/application (68.0ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined method `attach' for nil:NilClass):
+    10:   <%= @file_attachment.desc %>
+    11: </p>
+    12: <p>
+    13: <a href="<%= @user.attach.url %> "><b> File attached </b></a>
+    14: </p>
+    15: 
+    16: 
+  app/views/file_attachments/show.html.erb:13:in `_app_views_file_attachments_show_html_erb___98635334_32294328'
+  app/controllers/file_attachments_controller.rb:18:in `show'
+
+
+  Rendered c:/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered c:/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered c:/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started POST "/file_attachments" for 127.0.0.1 at 2012-04-27 11:36:42 +0200
+Processing by FileAttachmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qn1DCphnuh4Ib0/kd8ENwiGw3aU0TxaKtg0lIrBWLI0=", "file_attachment"=>{"title"=>"soww4", "desc"=>"rozwiazanie", "attach"=>#<ActionDispatch::Http::UploadedFile:0x3e5b150 @original_filename="lab4.c", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"file_attachment[attach]\"; filename=\"lab4.c\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<File:C:/Users/DeCe/AppData/Local/Temp/RackMultipart20120427-5016-7w8r2m>>, "note_id"=>"4"}, "commit"=>"Create File attachment"}
+  [1m[35m (0.0ms)[0m  begin transaction
+Binary data inserted for `string` type on column `attach_content_type`
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "file_attachments" ("attach_content_type", "attach_file_name", "attach_file_size", "attach_updated_at", "created_at", "desc", "note_id", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["attach_content_type", "application/octet-stream"], ["attach_file_name", "lab4.c"], ["attach_file_size", 10770], ["attach_updated_at", Fri, 27 Apr 2012 09:36:42 UTC +00:00], ["created_at", Fri, 27 Apr 2012 09:36:42 UTC +00:00], ["desc", "rozwiazanie"], ["note_id", 4], ["title", "soww4"], ["updated_at", Fri, 27 Apr 2012 09:36:42 UTC +00:00]]
+[paperclip] Saving attachments.
+  [1m[35m (6.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/file_attachments/14
+Completed 302 Found in 26ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/file_attachments/14" for 127.0.0.1 at 2012-04-27 11:36:42 +0200
+Processing by FileAttachmentsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFileAttachment Load (0.0ms)[0m  [1mSELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1[0m  [["id", "14"]]
+  Rendered file_attachments/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:42 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:42 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/file_attachments" for 127.0.0.1 at 2012-04-27 11:36:50 +0200
+Processing by FileAttachmentsController#index as HTML
+  [1m[35mFileAttachment Load (0.0ms)[0m  SELECT "file_attachments".* FROM "file_attachments" 
+  Rendered file_attachments/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:50 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:50 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started DELETE "/file_attachments/13" for 127.0.0.1 at 2012-04-27 11:36:54 +0200
+Processing by FileAttachmentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qn1DCphnuh4Ib0/kd8ENwiGw3aU0TxaKtg0lIrBWLI0=", "id"=>"13"}
+  [1m[36mFileAttachment Load (1.0ms)[0m  [1mSELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1[0m  [["id", "13"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+[paperclip] Scheduling attachments for deletion.
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "file_attachments" WHERE "file_attachments"."id" = ?[0m  [["id", 13]]
+[paperclip] Deleting attachments.
+[paperclip] deleting C:/Users/DeCe/My Documents/Aptana Studio 3 Workspace/NoteShare2/public/system/file_attachments/attaches/000/000/013/original/lab4.c
+  [1m[35m (13.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/file_attachments
+Completed 302 Found in 24ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/file_attachments" for 127.0.0.1 at 2012-04-27 11:36:54 +0200
+Processing by FileAttachmentsController#index as HTML
+  [1m[36mFileAttachment Load (0.0ms)[0m  [1mSELECT "file_attachments".* FROM "file_attachments" [0m
+  Rendered file_attachments/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:54 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:54 +0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/file_attachments/14" for 127.0.0.1 at 2012-04-27 11:36:56 +0200
+Processing by FileAttachmentsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mFileAttachment Load (1.0ms)[0m  SELECT "file_attachments".* FROM "file_attachments" WHERE "file_attachments"."id" = ? LIMIT 1  [["id", "14"]]
+  Rendered file_attachments/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/file_attachments.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:56 +0200
+Served asset /file_attachments.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-04-27 11:36:56 +0200
+Served asset /notes.css - 200 OK (0ms)

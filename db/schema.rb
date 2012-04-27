@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426155052) do
+ActiveRecord::Schema.define(:version => 20120427092806) do
 
   create_table "file_attachments", :force => true do |t|
     t.string   "title"
     t.text     "desc"
     t.integer  "note_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
   end
 
   create_table "notes", :force => true do |t|
