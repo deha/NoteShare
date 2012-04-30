@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120430145535) do
   end
 
   create_table "notes", :force => true do |t|
-    t.string   "folder_id"
+    t.integer  "folder_id"
     t.integer  "author_id"
     t.text     "title"
     t.datetime "created_at", :null => false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20120430145535) do
   end
 
   create_table "users", :force => true do |t|
-    t.text     "first_name"
-    t.string   "last_name_text"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
