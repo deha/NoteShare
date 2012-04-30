@@ -1,4 +1,9 @@
 NoteShare::Application.routes.draw do
+
+  resources :notes
+
+  resources :attachments
+
   resources :users
 
   # The priority is based upon order of creation:

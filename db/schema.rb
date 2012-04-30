@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430104521) do
+ActiveRecord::Schema.define(:version => 20120430145535) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "note_id"
+    t.text     "title"
+    t.text     "description"
+    t.integer  "type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.string   "folder_id"
+    t.integer  "author_id"
+    t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.text     "first_name"
