@@ -1,1 +1,7 @@
 NoteShare/Gemfile.lock
+
+/tmp
+/db/development.sqlite3
+/log
+/tmp/pids/server.pid
+/log/development.log
