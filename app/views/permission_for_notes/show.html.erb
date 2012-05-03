@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Level:</b>
+  <%= @permission_for_note.level %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @permission_for_note.user_id %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @permission_for_note.note_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_permission_for_note_path(@permission_for_note) %> |
+<%= link_to 'Back', permission_for_notes_path %>

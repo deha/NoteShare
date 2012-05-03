@@ -11,24 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430145535) do
+ActiveRecord::Schema.define(:version => 20120501162000) do
 
   create_table "attachments", :force => true do |t|
-    t.integer  "note_id"
-    t.text     "title"
-    t.text     "description"
+    t.integer  "note_id",     :null => false
+    t.string   "title",       :null => false
+    t.text     "description", :null => false
     t.integer  "type"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "attachments", ["note_id"], :name => "attachments_note_id_ix"
+
   create_table "notes", :force => true do |t|
     t.integer  "folder_id"
     t.integer  "author_id"
-    t.text     "title"
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "notes", ["author_id"], :name => "notes_author_id_ix"
+  add_index "notes", ["folder_id"], :name => "notes_folder_id_ix"
+
+  create_table "permission_for_notes", :id => false, :force => true do |t|
+    t.string   "level"
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "permission_for_notes", ["note_id"], :name => "permission_for_notes_note_id_ix"
+  add_index "permission_for_notes", ["user_id"], :name => "permission_for_notes_user_id_ix"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

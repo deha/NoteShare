@@ -1,0 +1,21 @@
+<h1>Listing permission_for_notes</h1>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>User</th>
+    <th>Note</th>
+  </tr>
+
+<% @permission_for_notes.each do |permission_for_note| %>
+  <tr>
+    <td><%= permission_for_note.level %></td>
+    <td><%= permission_for_note.user_id %></td>
+    <td><%= permission_for_note.note_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Permission for note', new_permission_for_note_path %>

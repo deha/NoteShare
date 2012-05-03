@@ -1,0 +1,2 @@
+module PermissionForNotesHelper
+end

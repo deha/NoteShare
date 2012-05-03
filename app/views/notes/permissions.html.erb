@@ -1,0 +1,50 @@
+<h1>Note permissions</h1>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th>User</th>
+    <th>Note</th>
+  </tr>
+
+<% @note.permission_for_notes.each do |permission_for_note| %>
+  <tr>
+    <td><%= permission_for_note.level %></td>
+    <td><%= permission_for_note.user_id %></td>
+    <td><%= permission_for_note.note_id %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= form_for(@permission_for_note, :url => new_permission_note_path(@note)) do |f| %>
+  <% if @permission_for_note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@permission_for_note.errors.count, "error") %> prohibited this permission_for_note from being saved:</h2>
+
+      <ul>
+      <% @permission_for_note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <label>Level: </label> 
+    <br />
+    <%= select("permission_for_note", "level", PermissionForNote::ALL_RIGHTS, {:include_blank => false}) %>
+  </div>
+  <div class="field">
+    <label>User: </label> 
+    <br />
+    <%= select("permission_for_note", "user_id", User.all.collect {|u| [ "#{u.first_name} #{u.last_name}", u.id ] }, {:include_blank => false}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', notes_path %>

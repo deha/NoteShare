@@ -80,4 +80,21 @@ class NotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def permissions
+    @note = Note.find(params[:id])
+    @permission_for_note = PermissionForNote.new
+  end
+  
+  def new_permission
+    @note = Note.find(params[:id])
+    @note.permission_for_notes.create!(params[:permission_for_note])
+    
+    respond_to do |format|
+      format.html { redirect_to permissions_note_path, notice: 'Note was successfully updated.' }
+      format.json { render json: @note }
+    end
+    
+   
+  end
 end
