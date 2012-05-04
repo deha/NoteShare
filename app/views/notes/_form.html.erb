@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :author_id %><br />
-    <%= f.number_field :author_id %>
+    <%= select("note", "author_id", User.all.collect {|u| [ "#{u.first_name} #{u.last_name}", u.id ] }, {:include_blank => false}) %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

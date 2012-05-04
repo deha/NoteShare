@@ -9,8 +9,6 @@ class CreateNotes < ActiveRecord::Migration
     end
     
     add_index :notes, :author_id, :name => 'notes_author_id_ix'
-    
-    #TODD: enable index when folder is created
     add_index :notes, :folder_id, :name => 'notes_folder_id_ix'
   end
 end

@@ -13,12 +13,11 @@
 <% @notes.each do |note| %>
   <tr>
     <td><%= note.folder_id %></td>
-    <td><%= note.author_id %></td>
+    <td><%= "#{note.author.first_name} #{note.author.last_name}" %></td>
     <td><%= note.title %></td>
     <td><%= link_to 'Show', note %></td>
     <td><%= link_to 'Edit', edit_note_path(note) %></td>
     <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
-    <td><%= link_to 'Permissions', permissions_note_path(note) %></td>
   </tr>
 <% end %>
 </table>

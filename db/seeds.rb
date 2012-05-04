@@ -6,5 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create({:last_name => "Tytanowy", :first_name => "Jan"})
+User.create({:last_name => "Molibdenowy", :first_name => "Mateusz"})
 
-User.create({:last_name => "Tytanowy" , :first_name => "Jan"})
+Note.create({:author => User.all.first, :title => "Simple title"})
