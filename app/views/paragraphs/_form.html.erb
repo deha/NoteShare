@@ -1,0 +1,41 @@
+<%= form_for(@paragraph) do |f| %>
+  <% if @paragraph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paragraph.errors.count, "error") %> prohibited this paragraph from being saved:</h2>
+
+      <ul>
+      <% @paragraph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :prev %><br />
+    <%= f.text_field :prev %>
+  </div>
+  <div class="field">
+    <%= f.label :next %><br />
+    <%= f.text_field :next %>
+  </div>
+  <div class="field">
+    <%= f.label :locking_user %><br />
+    <%= f.text_field :locking_user %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+  <div class="field">
+    <%= f.label :lock_time %><br />
+    <%= f.datetime_select :lock_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

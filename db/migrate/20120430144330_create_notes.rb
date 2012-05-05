@@ -8,7 +8,7 @@ class CreateNotes < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :notes, :author_id, :name => 'notes_author_id_ix'
-    add_index :notes, :folder_id, :name => 'notes_folder_id_ix'
+    add_index :notes, :author_id
+    add_index :notes, :folder_id
   end
 end

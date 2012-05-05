@@ -9,6 +9,6 @@ class CreateFolders < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :folders, :parent_id, :name => 'folders_parent_id_ix'
+    add_index :folders, :parent_id
   end
 end

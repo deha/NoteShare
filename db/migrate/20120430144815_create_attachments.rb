@@ -9,6 +9,6 @@ class CreateAttachments < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :attachments, :note_id, :name => 'attachments_note_id_ix'  
+    add_index :attachments, :note_id
   end
 end

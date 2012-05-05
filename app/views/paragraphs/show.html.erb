@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Note:</b>
+  <%= @paragraph.note %>
+</p>
+
+<p>
+  <b>Prev:</b>
+  <%= @paragraph.prev %>
+</p>
+
+<p>
+  <b>Next:</b>
+  <%= @paragraph.next %>
+</p>
+
+<p>
+  <b>Locking user:</b>
+  <%= @paragraph.locking_user %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @paragraph.text %>
+</p>
+
+<p>
+  <b>Lock time:</b>
+  <%= @paragraph.lock_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_paragraph_path(@paragraph) %> |
+<%= link_to 'Back', paragraphs_path %>
