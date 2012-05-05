@@ -11,6 +11,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @paragraphs.each do |paragraph| %>
@@ -23,6 +24,7 @@
     <td><%= paragraph.lock_time %></td>
     <td><%= link_to 'Show', paragraph %></td>
     <td><%= link_to 'Edit', edit_paragraph_path(paragraph) %></td>
+    <td><%= link_to 'Append new paragraph', append_paragraph_path(paragraph) %></td>
     <td><%= link_to 'Destroy', paragraph, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

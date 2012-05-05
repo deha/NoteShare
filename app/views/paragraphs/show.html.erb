@@ -30,6 +30,19 @@
   <%= @paragraph.lock_time %>
 </p>
 
+<p>
+  <b>Chain</b>
+  <% 
+  	iterator = @paragraph
+  	until iterator.nil? 
+   %>
+  		<%= iterator.id %> ->
+  <%  iterator = iterator.next
+  	end
+   %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_paragraph_path(@paragraph) %> |
 <%= link_to 'Back', paragraphs_path %>

@@ -2,7 +2,11 @@ NoteShare::Application.routes.draw do
 
   resources :permission_for_folders
 
-  resources :paragraphs
+  resources :paragraphs do 
+    member do 
+      get 'append'
+    end
+  end
 
   resources :folders
 
