@@ -1,0 +1,25 @@
+<%= form_for(@permission_for_folder) do |f| %>
+  <% if @permission_for_folder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@permission_for_folder.errors.count, "error") %> prohibited this permission_for_folder from being saved:</h2>
+
+      <ul>
+      <% @permission_for_folder.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :folder %><br />
+    <%= f.text_field :folder %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

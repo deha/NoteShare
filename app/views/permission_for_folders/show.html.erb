@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @permission_for_folder.user %>
+</p>
+
+<p>
+  <b>Folder:</b>
+  <%= @permission_for_folder.folder %>
+</p>
+
+
+<%= link_to 'Edit', edit_permission_for_folder_path(@permission_for_folder) %> |
+<%= link_to 'Back', permission_for_folders_path %>

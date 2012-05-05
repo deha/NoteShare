@@ -1,6 +1,6 @@
 class CreatePermissionForNotes < ActiveRecord::Migration
   def change
-    create_table(:permission_for_notes, :id => false) do |t|
+    create_table :permission_for_notes do |t|
       t.string :level
       t.references :user
       t.references :note

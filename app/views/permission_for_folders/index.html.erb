@@ -1,0 +1,25 @@
+<h1>Listing permission_for_folders</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Folder</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @permission_for_folders.each do |permission_for_folder| %>
+  <tr>
+    <td><%= permission_for_folder.user %></td>
+    <td><%= permission_for_folder.folder %></td>
+    <td><%= link_to 'Show', permission_for_folder %></td>
+    <td><%= link_to 'Edit', edit_permission_for_folder_path(permission_for_folder) %></td>
+    <td><%= link_to 'Destroy', permission_for_folder, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Permission for folder', new_permission_for_folder_path %>

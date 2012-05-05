@@ -1,5 +1,7 @@
 NoteShare::Application.routes.draw do
 
+  resources :permission_for_folders
+
   resources :paragraphs
 
   resources :folders
