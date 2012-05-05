@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :level %><br />
-    <%= select("permission_for_note", "level", PermissionForNote::ALL_RIGHTS, {:include_blank => false}) %>
+    <%= select("permission_for_note", "level", PermissionForNote::ALL_LEVELS, {:include_blank => false}) %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />

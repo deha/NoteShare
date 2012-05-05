@@ -1,15 +1,10 @@
 NoteShare::Application.routes.draw do
 
+  resources :folders
+
   resources :permission_for_notes 
   
-  resources :notes do
-    resources :permission_for_notes
-    
-    #member do 
-    #  get 'permissions'
-    #  post 'new_permission'
-    #end
-  end
+  resources :notes 
 
   resources :attachments
 

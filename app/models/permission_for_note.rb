@@ -14,12 +14,12 @@ class PermissionForNote < ActiveRecord::Base
   belongs_to :user
   belongs_to :note
   
-  ADMIN_RIGHT = "administrator notatki"
-  WRITE_RIGHT = "modyfikowanie notatki"
+  ADMIN_LEVEL = "administrator notatki"
+  WRITE_LEVEL = "modyfikowanie notatki"
   
-  ALL_RIGHTS = [ADMIN_RIGHT, WRITE_RIGHT]
+  ALL_LEVELS = [ADMIN_LEVEL, WRITE_LEVEL]
   
   attr_accessible :level, :user_id
   
-  validates_inclusion_of :level, :in => ALL_RIGHTS
+  validates_inclusion_of :level, :in => ALL_LEVELS
 end
