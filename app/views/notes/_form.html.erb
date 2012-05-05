@@ -23,6 +23,19 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  
+  <%= f.fields_for :permission_for_notes do |builder| %>
+  	  <div class="field">
+	    <%= builder.label :user_id %>
+	    <%= builder.collection_select(:user_id, User.all, :id, :first_name) %>
+	  </div>
+	  
+	  <div class="field">
+	    <%= builder.label :level %>
+	    <%= builder.select(:level, PermissionForNote::ALL_RIGHTS, {:include_blank => false}) %>
+	  </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -35,6 +35,8 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = Note.find(params[:id])
+    
+    @note.permission_for_notes.build
   end
 
   # POST /notes

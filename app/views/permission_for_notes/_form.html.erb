@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :level %><br />
-    <%= f.number_field :level %>
+    <%= select("permission_for_note", "level", PermissionForNote::ALL_RIGHTS, {:include_blank => false}) %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= select("@permission_for_note", "user_id", User.all.collect {|u| [ "#{u.first_name} #{u.last_name}", u.id ] }, {:include_blank => false}) %>
+    <%= select("permission_for_note", "user_id", User.all.collect {|u| [ "#{u.first_name} #{u.last_name}", u.id ] }, {:include_blank => false}) %>
   </div>
   <div class="field">
     <%= f.label :note_id %><br />
-    <%= select("@permission_for_note", "note_id", Note.all.collect {|n| [ "#{n.title}", n.id ] }, {:include_blank => false}) %>
+    <%= select("permission_for_note", "note_id", Note.all.collect {|n| [ "#{n.title}", n.id ] }, {:include_blank => false}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

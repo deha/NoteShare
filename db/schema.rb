@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120501162000) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "permission_for_notes", ["note_id", "user_id"], :name => "index_permission_for_notes_on_note_id_and_user_id", :unique => true
   add_index "permission_for_notes", ["note_id"], :name => "permission_for_notes_note_id_ix"
   add_index "permission_for_notes", ["user_id"], :name => "permission_for_notes_user_id_ix"
 
