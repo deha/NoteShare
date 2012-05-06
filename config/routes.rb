@@ -16,7 +16,9 @@ NoteShare::Application.routes.draw do
 
   resources :attachments
 
-  resources :users
+  devise_for :users
+  
+  root :to => "folders#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

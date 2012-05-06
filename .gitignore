@@ -6,3 +6,4 @@ NoteShare/Gemfile.lock
 /tmp/pids/server.pid
 /log/development.log
 /db/schema.rb
+/Gemfile.lock

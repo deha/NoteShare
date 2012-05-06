@@ -3,7 +3,7 @@ class Folder < ActiveRecord::Base
   has_many :subfolders, :class_name => "Folder"
   has_many :permission_for_folders, :dependent => :destroy
   has_many :users, :through => :permission_for_folders
-  
+  has_many :notes
   
   COURSE_LEVEL = "kierunek"
   SEMESTER_LEVEL = "semestr"
