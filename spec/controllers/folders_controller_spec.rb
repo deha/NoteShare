@@ -34,37 +34,6 @@ describe FoldersController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all folders as @folders" do
-      folder = Folder.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:folders).should eq([folder])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested folder as @folder" do
-      folder = Folder.create! valid_attributes
-      get :show, {:id => folder.to_param}, valid_session
-      assigns(:folder).should eq(folder)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new folder as @folder" do
-      get :new, {}, valid_session
-      assigns(:folder).should be_a_new(Folder)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested folder as @folder" do
-      folder = Folder.create! valid_attributes
-      get :edit, {:id => folder.to_param}, valid_session
-      assigns(:folder).should eq(folder)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Folder" do
@@ -98,50 +67,6 @@ describe FoldersController do
         Folder.any_instance.stub(:save).and_return(false)
         post :create, {:folder => {}}, valid_session
         response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested folder" do
-        folder = Folder.create! valid_attributes
-        # Assuming there are no other folders in the database, this
-        # specifies that the Folder created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Folder.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => folder.to_param, :folder => {'these' => 'params'}}, valid_session
-      end
-
-      it "assigns the requested folder as @folder" do
-        folder = Folder.create! valid_attributes
-        put :update, {:id => folder.to_param, :folder => valid_attributes}, valid_session
-        assigns(:folder).should eq(folder)
-      end
-
-      it "redirects to the folder" do
-        folder = Folder.create! valid_attributes
-        put :update, {:id => folder.to_param, :folder => valid_attributes}, valid_session
-        response.should redirect_to(folder)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the folder as @folder" do
-        folder = Folder.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Folder.any_instance.stub(:save).and_return(false)
-        put :update, {:id => folder.to_param, :folder => {}}, valid_session
-        assigns(:folder).should eq(folder)
-      end
-
-      it "re-renders the 'edit' template" do
-        folder = Folder.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Folder.any_instance.stub(:save).and_return(false)
-        put :update, {:id => folder.to_param, :folder => {}}, valid_session
-        response.should render_template("edit")
       end
     end
   end

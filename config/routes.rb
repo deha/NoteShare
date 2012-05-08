@@ -1,6 +1,6 @@
 NoteShare::Application.routes.draw do
 
-  resources :permission_for_folders
+  resources :permission_for_folders, :only => [:create, :destroy]
 
   resources :paragraphs do 
     member do 

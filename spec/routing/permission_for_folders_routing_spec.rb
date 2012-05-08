@@ -4,19 +4,19 @@ describe PermissionForFoldersController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/permission_for_folders").should route_to("permission_for_folders#index")
+      {:get => "/permission_for_folders"}.should_not be_routable
     end
 
     it "routes to #new" do
-      get("/permission_for_folders/new").should route_to("permission_for_folders#new")
+      {:get => "/permission_for_folders/new"}.should_not be_routable
     end
 
     it "routes to #show" do
-      get("/permission_for_folders/1").should route_to("permission_for_folders#show", :id => "1")
+      {:get => "/permission_for_folders/1"}.should_not be_routable
     end
 
     it "routes to #edit" do
-      get("/permission_for_folders/1/edit").should route_to("permission_for_folders#edit", :id => "1")
+      {:get => "/permission_for_folders/1/edit" }.should_not be_routable
     end
 
     it "routes to #create" do
@@ -24,7 +24,7 @@ describe PermissionForFoldersController do
     end
 
     it "routes to #update" do
-      put("/permission_for_folders/1").should route_to("permission_for_folders#update", :id => "1")
+      {:put => "/permission_for_folders/1"}.should_not be_routable
     end
 
     it "routes to #destroy" do
