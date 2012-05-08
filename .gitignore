@@ -1,3 +1,4 @@
+*.rb~
 NoteShare/Gemfile.lock
 
 /tmp
@@ -7,3 +8,4 @@ NoteShare/Gemfile.lock
 /log/development.log
 /db/schema.rb
 /Gemfile.lock
+/db/test.sqlite3
