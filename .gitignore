@@ -1,6 +1,7 @@
 *.rb~
 NoteShare/Gemfile.lock
 
+/public/system
 /tmp
 /db/development.sqlite3
 /log

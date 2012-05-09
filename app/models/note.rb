@@ -13,6 +13,7 @@
 class Note < ActiveRecord::Base
   has_many :permission_for_notes, :dependent => :destroy
   has_many :users, :through => :permission_for_notes
+  has_many :attachments
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   belongs_to :folder
   

@@ -13,4 +13,7 @@
 
 class Attachment < ActiveRecord::Base
   belongs_to :note
+  has_attached_file :attach
+  
+  attr_accessible :type, :note_id, :title, :description, :attach
 end

@@ -19,7 +19,9 @@
   <b>Type:</b>
   <%= @attachment.type %>
 </p>
-
+<p>
+  <a href="<%= @attachment.attach.url %> "><b> File attached </b></a>
+</p>
 
 <%= link_to 'Edit', edit_attachment_path(@attachment) %> |
 <%= link_to 'Back', attachments_path %>
